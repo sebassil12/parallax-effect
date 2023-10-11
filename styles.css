@@ -1,0 +1,78 @@
+*,*::before,*::after{
+    /*Tells the browser to account for any border and padding in the 
+    values you specify for an element's width and height.*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+main{
+    /* Viewport height 100vh equals to 100% visualization area*/
+    height: 100vh;
+    /* Property sets what shows when content overflows a block-level element's left and right edges. */
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Determines the distance between the z=0 plane and the user 
+    in order to give a 3D-positioned element some perspective. */
+    perspective: 3px;
+}   
+section 
+{
+    /* Sets whether children of an element are positioned in the 3D 
+    space or are flattened in the plane of the element.*/
+    transform-style: preserve-3d;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+}
+
+.no-effect
+{
+  background-color: #5333ed;
+  z-index: 999;
+}
+section h1{
+    text-align: center;
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+.effect h1{
+    width: 60%;
+    font-size: 2rem;
+}
+
+.effect::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-3px) scale(2);
+    z-index: -1;
+}
+
+
+.bg::after 
+{
+  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("./assets/photo.jpg");
+  background-size: cover;
+}
+
+@media screen and (min-width: 768px) 
+{
+  section h1 
+  {
+    font-size: 8rem;
+  }
+  
+  .effect  h1 
+  {
+    font-size: 2rem;
+  }
+}
